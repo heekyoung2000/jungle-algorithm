@@ -1,4 +1,4 @@
-from typing import MutableSequence
+'''from typing import MutableSequence
 import bisect
 
 def bubble_sort(a:MutableSequence)->None:
@@ -148,5 +148,29 @@ def factorial(n):
 def fibonacci(n):
     if n<=1:
         return n
-    return fibonacci(n-1)+fibonacci(n-2)
+    return fibonacci(n-1)+fibonacci(n-2)'''
     
+    
+def q_sort(list1,left,right):
+    pl=left
+    pr=right
+    x = list1[(left+right)//2]
+    
+    while pl<=pr:
+        while list1[pl]<x:
+            pl+=1
+        while list1[pr]>x:
+            pr-=1
+        if pl<=pr:
+            list1[pl],list1[pr]=list1[pr],list1[pl]
+            pl+=1
+            pr-=1
+        
+        if left<pr:
+            q_sort(list1,left,pr)
+        if pl < right:
+            q_sort(list1,pl,right)
+    
+list1=[3,1,2,5,3,1]
+q_sort(list1,0,len(list1)-1)
+print(list1)
