@@ -30,9 +30,9 @@ for _ in range(n):
         a,b = map(int,s.readline().split())
         graph[a].append(b)
         graph[b].append(a)
-        
+    print(graph)
     for i in range(1, v+1):
-        if visited[i] ==0:
+        if visited[i] ==0: #각각 떨어져 있는 노드에 대해서도 이분그래프 인지 판별해줘야 하기 때문에 for문 돌림
             result = (dfs(i,1))
             if not result:
                 break
